@@ -21,7 +21,7 @@ Dataset credits: https://www.kaggle.com/arjuntejaswi/plant-village
 
 -------------------------------------------------------------------------
 
-# Problem Solving
+# Solve The Problem
 
 https://user-images.githubusercontent.com/104658866/197216831-3dc80282-d98f-4bc9-b7b7-25a06686daef.mp4
 
