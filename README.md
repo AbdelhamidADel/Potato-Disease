@@ -1,4 +1,6 @@
 # Potato-Disease
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://abdelhamidadel-potato-disease-classification-app-0e64jp.streamlitapp.com/)
+
 # Dataset
 Dataset credits: https://www.kaggle.com/arjuntejaswi/plant-village
 
@@ -16,4 +18,10 @@ Dataset credits: https://www.kaggle.com/arjuntejaswi/plant-village
 3-Late Blight leaves
 
 ![Late Blight leaves](https://user-images.githubusercontent.com/104658866/196979416-5a108bda-27e4-42e8-9125-52b68b6af20c.png)
+
+-------------------------------------------------------------------------
+
+# Problem Solving
+
+https://user-images.githubusercontent.com/104658866/197216831-3dc80282-d98f-4bc9-b7b7-25a06686daef.mp4
 
