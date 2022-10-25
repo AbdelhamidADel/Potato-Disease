@@ -96,7 +96,7 @@ if selected =='Prediction':
 # --------------------------------------------------Take a picture-----------------------------------------------------------
         if picture is not None:
             showed_img1=Image.open(picture)
-            showed_img1= showed_img.resize((256, 256))
+            showed_img1= showed_img1.resize((256, 256))
             imageLocation.image(showed_img1)
             
             result1, confidence1 = predict_class(picture)
