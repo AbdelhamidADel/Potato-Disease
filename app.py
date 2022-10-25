@@ -145,8 +145,7 @@ if selected =='About':
   position: absolute;
   top: 50%;
   left: 50%;
-  
-  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 button:hover {
