@@ -50,12 +50,14 @@ if selected =='Prediction':
     st.markdown("<h3 style='text-align: center; color: white;'>-Model made by CNN-</h3>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center; color: white;'>-Model Accuracy-99 % || Model Evaluation-98 %-</h6>", unsafe_allow_html=True)
 
+    result1_msg = st.empty()
+    result2_msg = st.empty()
     st.markdown("-------------------------------------------------------------------------------")
 
     def predict_class(img) :
         classifier_model = tf.keras.models.load_model(r'potatoes.h5', compile = False)
         print('Model Loaded Succafully !!')
-        image = Image.open(img)
+        image = Image.open(img).convert("L")
         shape = ((256,256,3))
 
         test_image = image.resize((256, 256))
@@ -72,23 +74,41 @@ if selected =='Prediction':
     try:
         imageLocation = st.empty()
         imageLocation.image('Default_Image_Thumbnail.png')
-        img = st.file_uploader(label="Potato Disease Classification : ", type=['jpeg', 'jpg', 'png'], key="xray")
-        if img is not None:
-            showed_img=Image.open(img)
+        imgg = st.file_uploader(label="Choose a picture : ", type=['jpeg', 'jpg', 'png'], key="xray")
+
+        st.markdown("<h3 style='text-align: center; color: white;'>  </h3>", unsafe_allow_html=True)
+
+        picture = st.camera_input("Take a picture : ")
+        if picture is not None:
+            showed_img=Image.open(picture)
             showed_img= showed_img.resize((256, 256))
             imageLocation.image(showed_img)
-            loading_msg = st.empty()
-            loading_msg.text("Predicting...")
-            result, confidence = predict_class(img)
-            if result =="Potato__healthy":
-                st.success('Prediction : {}'.format(result))
-            elif result =="Potato__Early blight":
-                st.warning('Prediction : {}'.format(result))
-            else:
-                st.error('Prediction : {}'.format(result))
-            st.write('Confidence : {}%'.format(confidence))
+
+            result1= pneumoniapredictPage(picture)
+            with result1_msg.container():
+                if result1 == "Normal" : 
+                    st.success("Your Lungs are Healthy")
+                elif result1 == "penumonia":
+                    st.error("There is Pneumonia, You Should Go to The Doctor")
+        
+        if imgg is not None:
+            #show to ui
+            showed_img=Image.open(imgg)
+            showed_img= showed_img.resize((256, 256))
+            imageLocation.image(showed_img)
+            # for prediction
+            result2= pneumoniapredictPage(imgg)
+            with result2_msg.container():
+                if result2 == "Normal" : 
+                    st.success("Your Lungs are Healthy")
+                elif result2 == "penumonia":
+                    st.error("There is Pneumonia, You Should Go to The Doctor")
     except:
         st.markdown("<h3 style='text-align: center; color: white;'>Try Another Pictuer !</h3>", unsafe_allow_html=True)
+
+
+
+# --------------------------------------------------ABOUT PAGE-----------------------------------------------------------
 if selected =='About':
     hide_streamlit_style = """
                 <style>
@@ -97,9 +117,56 @@ if selected =='About':
                 </style>
                 """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-    st.header("How I Am ?")
-    st.text('My Name is Abdelhamid Adel, Data scientist')
-    st.text('I am From Cairo, Egypt')
+    st.markdown("<h1 style='text-align: center; color: white;'>How I Am ?</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: white;'>My Name is Abdelhamid Adel</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: white;'>Data Scientist | Data analyst l knowledgeable in Machine learning - Deep learning - NLP - Computer Vision</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: white;'> I am From Cairo, Egypt</h3>", unsafe_allow_html=True)
+
+    button_styl="""<style>
+    button  {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+button:hover,
+button:active {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  button{
+    padding: 10px 30px;
+  }
+}
+    </style>"""
+
+    st.markdown(button_styl, unsafe_allow_html=True) 
+
+
     st.write(f'''
     <a target="_blank" href="https://github.com/AbdelhamidADel">
         <button>
