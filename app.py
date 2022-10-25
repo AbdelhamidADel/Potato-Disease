@@ -142,7 +142,7 @@ if selected =='About':
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     st.markdown("<h1 style='text-align: center; color: white;'>How I Am ?</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: white;'>My Name is Abdelhamid Adel</h3>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center; color: white;'>Data Scientist | Data analyst l knowledgeable in Machine learning - Deep learning - NLP - Computer Vision</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: white;'>Data Scientist | Data analyst | knowledgeable in Machine learning - Deep learning - NLP - Computer Vision</h3>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: white;'> I am From Cairo, Egypt</h3>", unsafe_allow_html=True)
     button_styl="""<style>
         button{
