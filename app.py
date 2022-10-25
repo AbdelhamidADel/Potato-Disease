@@ -31,6 +31,7 @@ def set_background(png_file):
 set_background('back_1.jpg')
 # --------------------------------------------------Prediction PAGE-----------------------------------------------------------
 if selected =='Prediction':
+    
     hide_streamlit_style = """
                 <style>
                 #MainMenu {visibility: hidden;}
@@ -46,6 +47,8 @@ if selected =='Prediction':
 
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     st.markdown(img_style, unsafe_allow_html=True) 
+    st.markdown(button_styl, unsafe_allow_html=True) 
+
     st.markdown("<h1 style='text-align: center; color: white;'>Potato Disease Classification </h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: white;'>-Model made by CNN-</h3>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center; color: white;'>-Model Accuracy-99 % || Model Evaluation-98 %-</h6>", unsafe_allow_html=True)
@@ -64,7 +67,7 @@ if selected =='Prediction':
     def predict_class(img) :
         classifier_model = tf.keras.models.load_model(r'potatoes.h5', compile = False)
         print('Model Loaded Succafully !!')
-        image = Image.open(img).convert("L")
+        image = Image.open(img)
         shape = ((256,256,3))
 
         test_image = image.resize((256, 256))
