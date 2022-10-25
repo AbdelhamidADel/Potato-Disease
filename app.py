@@ -9,13 +9,14 @@ st.set_page_config(layout="centered",page_icon="🥔",page_title="Potato Disease
 
 with st.sidebar:
     selected = option_menu("Main Menu", ["Prediction", 'About'], 
-        icons=['house', 'gear'], menu_icon="cast", default_index=1,
+        icons=['house', 'list-task'], menu_icon="cast", default_index=-1,
                            styles={
-        "container": {"padding": "0!important", "background-color": "#c2fbd7"},
-        "icon": {"color": "orange", "font-size": "25px"}, 
-        "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-        "nav-link-selected": {"background-color": "black"},
+        "container": { "background-color": "#11814B"},
+        "icon": {"color": "white", "font-size": "15px"}, 
+        "nav-link": {"font-size": "15px", "text-align": "left", "margin":"0px", "--hover-color": "#c2fbd7"},
+        "nav-link-selected": {"background-color": "#06331E"},
     })
+
 
 #----------------------------------------------------------------
 def get_base64(bin_file):
