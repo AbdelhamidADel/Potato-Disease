@@ -96,13 +96,13 @@ if selected =='Prediction':
 
             with result1_msg.container():
                 if result1 =="Potato__healthy":
-                    st.success('Prediction : {}'.format(result))
+                    st.success('Prediction : {}'.format(result1))
                 elif result1 =="Potato__Early blight":
-                    st.warning('Prediction : {}'.format(result))
+                    st.warning('Prediction : {}'.format(result1))
                 else:
-                    st.error('Prediction : {}'.format(result))
+                    st.error('Prediction : {}'.format(result1))
             with conv_1.container():
-                st.write('Confidence : {}%'.format(confidence))
+                st.write('Confidence : {}%'.format(confidence1))
 # --------------------------------------------------Upload picture-----------------------------------------------------------
         if img is not None:
             showed_img2=Image.open(img)
@@ -113,13 +113,13 @@ if selected =='Prediction':
             
             with result2_msg.container():
                 if result2 =="Potato__healthy":
-                    st.success('Prediction : {}'.format(result))
+                    st.success('Prediction : {}'.format(result2))
                 elif result2 =="Potato__Early blight":
-                    st.warning('Prediction : {}'.format(result))
+                    st.warning('Prediction : {}'.format(result2))
                 else:
-                    st.error('Prediction : {}'.format(result))
+                    st.error('Prediction : {}'.format(result2))
             with conv_2.container():
-                st.write('Confidence : {}%'.format(confidence))
+                st.write('Confidence : {}%'.format(confidence2))
     except:
         st.markdown("<h3 style='text-align: center; color: white;'>Try Another Pictuer !</h3>", unsafe_allow_html=True)
 
