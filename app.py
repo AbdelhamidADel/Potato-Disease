@@ -8,7 +8,7 @@ import base64
 st.set_page_config(layout="centered",page_icon="🥔",page_title="Potato Disease")
 
 button_styl="""<style>
-    button .container-xxl d-flex flex-column flex-shrink-0 p-3{
+    button{
   background-color: #c2fbd7;
   border-radius: 100px;
   box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
@@ -33,7 +33,7 @@ button_styl="""<style>
 
 }
 
-button .container-xxl d-flex flex-column flex-shrink-0 p-3 :hover {
+button:hover {
   box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }
@@ -166,41 +166,6 @@ if selected =='About':
     st.markdown("<h3 style='text-align: center; color: white;'>My Name is Abdelhamid Adel</h3>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: white;'>Data Scientist | Data analyst l knowledgeable in Machine learning - Deep learning - NLP - Computer Vision</h3>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: white;'> I am From Cairo, Egypt</h3>", unsafe_allow_html=True)
-
-    button_styl="""<style>
-    button {
-  background-color: #c2fbd7;
-  border-radius: 100px;
-  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-  color: green;
-  cursor: pointer;
-  display: inline-block;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-  padding: 7px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  margin-right:100px;
-  position: relative;
-  top: 50%;
-  left: 40%;
-
-}
-
-button:hover {
-  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
-  transform: scale(1.05) rotate(-1deg);
-}
-    </style>"""
-
-    st.markdown(button_styl, unsafe_allow_html=True) 
-
 
     st.write(f'''
     <a target="_blank" href="https://github.com/AbdelhamidADel">
