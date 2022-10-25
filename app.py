@@ -29,7 +29,7 @@ def set_background(png_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 set_background('back_1.jpg')
-#------------------------------------------------------------------ 
+# --------------------------------------------------Prediction PAGE-----------------------------------------------------------
 if selected =='Prediction':
     hide_streamlit_style = """
                 <style>
@@ -49,10 +49,17 @@ if selected =='Prediction':
     st.markdown("<h1 style='text-align: center; color: white;'>Potato Disease Classification </h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: white;'>-Model made by CNN-</h3>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center; color: white;'>-Model Accuracy-99 % || Model Evaluation-98 %-</h6>", unsafe_allow_html=True)
+    
+# --------------------------------------------------Result-----------------------------------------------------------
 
     result1_msg = st.empty()
+    conv_1=st.empty()
     result2_msg = st.empty()
+    conv_2=st.empty()
     st.markdown("-------------------------------------------------------------------------------")
+    
+    
+# --------------------------------------------------predict function-----------------------------------------------------------
 
     def predict_class(img) :
         classifier_model = tf.keras.models.load_model(r'potatoes.h5', compile = False)
@@ -74,38 +81,42 @@ if selected =='Prediction':
     try:
         imageLocation = st.empty()
         imageLocation.image('Default_Image_Thumbnail.png')
-        imgg = st.file_uploader(label="Choose a picture : ", type=['jpeg', 'jpg', 'png'], key="xray")
-
+        img = st.file_uploader(label="Choose a picture : ", type=['jpeg', 'jpg', 'png'], key="xray")
         st.markdown("<h3 style='text-align: center; color: white;'>  </h3>", unsafe_allow_html=True)
-
         picture = st.camera_input("Take a picture : ")
+# --------------------------------------------------Take a picture-----------------------------------------------------------
         if picture is not None:
             showed_img=Image.open(picture)
             showed_img= showed_img.resize((256, 256))
             imageLocation.image(showed_img)
+            result1, confidence1 = predict_class(picture)
 
-            result1= pneumoniapredictPage(picture)
             with result1_msg.container():
-                if result1 == "Normal" : 
-                    st.success("Your Lungs are Healthy")
-                elif result1 == "penumonia":
-                    st.error("There is Pneumonia, You Should Go to The Doctor")
-        
-        if imgg is not None:
-            #show to ui
-            showed_img=Image.open(imgg)
+                if result1 =="Potato__healthy":
+                    st.success('Prediction : {}'.format(result))
+                elif result1 =="Potato__Early blight":
+                    st.warning('Prediction : {}'.format(result))
+                else:
+                    st.error('Prediction : {}'.format(result))
+            with conv_1.container():
+                st.write('Confidence : {}%'.format(confidence))
+# --------------------------------------------------Upload picture-----------------------------------------------------------
+        if img is not None:
+            showed_img=Image.open(img)
             showed_img= showed_img.resize((256, 256))
             imageLocation.image(showed_img)
-            # for prediction
-            result2= pneumoniapredictPage(imgg)
+            result2, confidence2 = predict_class(img)
             with result2_msg.container():
-                if result2 == "Normal" : 
-                    st.success("Your Lungs are Healthy")
-                elif result2 == "penumonia":
-                    st.error("There is Pneumonia, You Should Go to The Doctor")
+                if result2 =="Potato__healthy":
+                    st.success('Prediction : {}'.format(result))
+                elif result2 =="Potato__Early blight":
+                    st.warning('Prediction : {}'.format(result))
+                else:
+                    st.error('Prediction : {}'.format(result))
+            with conv_2.container():
+                st.write('Confidence : {}%'.format(confidence))
     except:
         st.markdown("<h3 style='text-align: center; color: white;'>Try Another Pictuer !</h3>", unsafe_allow_html=True)
-
 
 
 # --------------------------------------------------ABOUT PAGE-----------------------------------------------------------
