@@ -11,7 +11,27 @@ with st.sidebar:
     selected = option_menu("Main Menu", ["Prediction", 'About'], 
         icons=['house', 'gear'], menu_icon="cast", default_index=1)
     
-container_styl="""<style>
+#----------------------------------------------------------------
+def get_base64(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+def set_background(png_file):
+    bin_str = get_base64(png_file)
+    page_bg_img = '''
+    <style>
+    .stApp {
+    background-image: url("data:image/png;base64,%s");
+    background-size: cover;
+    }
+    </style>
+    ''' % bin_str
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+set_background('back_1.jpg')
+# --------------------------------------------------Prediction PAGE-----------------------------------------------------------
+if selected =='Prediction':
+    container_styl="""<style>
         ul{
       background-color: #c2fbd7;
       border-radius: 100px;
@@ -42,27 +62,7 @@ container_styl="""<style>
       transform: scale(1.05) rotate(-1deg);
     }
         </style>"""
-st.markdown(container_styl, unsafe_allow_html=True) 
-#----------------------------------------------------------------
-def get_base64(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-def set_background(png_file):
-    bin_str = get_base64(png_file)
-    page_bg_img = '''
-    <style>
-    .stApp {
-    background-image: url("data:image/png;base64,%s");
-    background-size: cover;
-    }
-    </style>
-    ''' % bin_str
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-set_background('back_1.jpg')
-# --------------------------------------------------Prediction PAGE-----------------------------------------------------------
-if selected =='Prediction':
+    st.markdown(container_styl, unsafe_allow_html=True) 
     
     hide_streamlit_style = """
                 <style>
