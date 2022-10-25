@@ -144,7 +144,7 @@ if selected =='About':
   margin-right:100px;
   position: relative;
   top: 50%;
-  left: 50%;
+  left: 40%;
 
 }
 
