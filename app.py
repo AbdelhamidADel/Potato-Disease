@@ -57,6 +57,7 @@ if selected =='Prediction':
     conv_1=st.empty()
     result2_msg = st.empty()
     conv_2=st.empty()
+    
     st.markdown("-------------------------------------------------------------------------------")
     
     
@@ -64,7 +65,6 @@ if selected =='Prediction':
 
     def predict_class(img) :
         classifier_model = tf.keras.models.load_model(r'potatoes.h5', compile = False)
-        print('Model Loaded Succafully !!')
         image = Image.open(img)
         shape = ((256,256,3))
 
@@ -78,6 +78,7 @@ if selected =='Prediction':
         confidence = round(100 * (np.max(prediction[0])), 2)
         final_pred = class_name[np.argmax(prediction)]
         return final_pred, confidence
+# ----------------------------------------------------------------------------------------------------------------------------------
 
     try:
         imageLocation = st.empty()
@@ -87,9 +88,10 @@ if selected =='Prediction':
         picture = st.camera_input("Take a picture : ")
 # --------------------------------------------------Take a picture-----------------------------------------------------------
         if picture is not None:
-            showed_img=Image.open(picture)
-            showed_img= showed_img.resize((256, 256))
-            imageLocation.image(showed_img)
+            showed_img1=Image.open(picture)
+            showed_img1= showed_img.resize((256, 256))
+            imageLocation.image(showed_img1)
+            
             result1, confidence1 = predict_class(picture)
 
             with result1_msg.container():
@@ -103,10 +105,12 @@ if selected =='Prediction':
                 st.write('Confidence : {}%'.format(confidence))
 # --------------------------------------------------Upload picture-----------------------------------------------------------
         if img is not None:
-            showed_img=Image.open(img)
-            showed_img= showed_img.resize((256, 256))
-            imageLocation.image(showed_img)
+            showed_img2=Image.open(img)
+            showed_img2= showed_img2.resize((256, 256))
+            imageLocation.image(showed_img2)
+            
             result2, confidence2 = predict_class(img)
+            
             with result2_msg.container():
                 if result2 =="Potato__healthy":
                     st.success('Prediction : {}'.format(result))
