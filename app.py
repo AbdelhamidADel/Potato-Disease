@@ -10,29 +10,8 @@ st.set_page_config(layout="centered",page_icon="🥔",page_title="Potato Disease
 with st.sidebar:
     selected = option_menu("Main Menu", ["Prediction", 'About'], 
         icons=['house', 'gear'], menu_icon="cast", default_index=1)
-    
-#----------------------------------------------------------------
-def get_base64(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-def set_background(png_file):
-    bin_str = get_base64(png_file)
-    page_bg_img = '''
-    <style>
-    .stApp {
-    background-image: url("data:image/png;base64,%s");
-    background-size: cover;
-    }
-    </style>
-    ''' % bin_str
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-set_background('back_1.jpg')
-# --------------------------------------------------Prediction PAGE-----------------------------------------------------------
-if selected =='Prediction':
-    container_styl="""<style>
-        ul{
+container_styl="""<style>
+        div .css-6qob1r e1fqkh3o3{
       background-color: #c2fbd7;
       border-radius: 100px;
       box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
@@ -57,13 +36,33 @@ if selected =='Prediction':
 
     }
 
-    ul:hover {
+    div .css-6qob1r e1fqkh3o3:hover {
       box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
       transform: scale(1.05) rotate(-1deg);
     }
         </style>"""
-    st.markdown(container_styl, unsafe_allow_html=True) 
-    
+st.markdown(container_styl, unsafe_allow_html=True) 
+        
+#----------------------------------------------------------------
+def get_base64(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+def set_background(png_file):
+    bin_str = get_base64(png_file)
+    page_bg_img = '''
+    <style>
+    .stApp {
+    background-image: url("data:image/png;base64,%s");
+    background-size: cover;
+    }
+    </style>
+    ''' % bin_str
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+set_background('back_1.jpg')
+# --------------------------------------------------Prediction PAGE-----------------------------------------------------------
+if selected =='Prediction':
     hide_streamlit_style = """
                 <style>
                 #MainMenu {visibility: hidden;}
