@@ -8,7 +8,7 @@ import base64
 st.set_page_config(layout="centered",page_icon="🥔",page_title="Potato Disease")
 
 button_styl="""<style>
-    button {
+    button .container-xxl d-flex flex-column flex-shrink-0 p-3{
   background-color: #c2fbd7;
   border-radius: 100px;
   box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
@@ -33,7 +33,7 @@ button_styl="""<style>
 
 }
 
-button:hover {
+button .container-xxl d-flex flex-column flex-shrink-0 p-3 :hover {
   box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }
