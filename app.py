@@ -72,7 +72,7 @@ if selected =='Prediction':
 
     def predict_class(img) :
         classifier_model = tf.keras.models.load_model(r'potatoes.h5', compile = False)
-        image = Image.open(img).convert("L")
+        image = Image.open(img)
         shape = ((256,256,3))
 
         test_image = image.resize((256, 256))
