@@ -140,6 +140,11 @@ if selected =='About':
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  vertical-align: middle;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 button:hover {
