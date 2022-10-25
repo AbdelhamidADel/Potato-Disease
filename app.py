@@ -141,8 +141,8 @@ if selected =='About':
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
-  margin-right:50px;
-  position: absolute;
+  margin-right:100px;
+  position: relative;
   top: 50%;
   left: 50%;
 
